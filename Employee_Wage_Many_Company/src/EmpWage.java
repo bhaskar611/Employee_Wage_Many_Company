@@ -1,13 +1,12 @@
 public class EmpWage{
  	static final int IS_FULL_TIME =1;
  	static final int IS_PART_TIME =2;
- 	static final int EMP_RATE_PER_HRS=20;
- 	static final int NUM_OF_WORKING_DAYS=20;
- 	static final int MAX_HRS_IN_MONTH=100;
+ 	
  	
  
   	
-  	 public static int computeEmpWage() {
+ 
+  		 public static int computeEmpWage(String company, int EMP_RATE_PER_HRS, int NUM_OF_WORKING_DAYS, int MAX_HRS_IN_MONTH  ) {
    	int empHrs = 0;
    	int totalEmpHrs=0;
    	int totalEmpWage=0;
@@ -31,11 +30,14 @@ public class EmpWage{
 	}
   	 
    	totalEmpWage=totalEmpHrs * EMP_RATE_PER_HRS;
-   	System.out.println("Total Emp Wage: " + totalEmpWage );
+   	
+   	System.out.println("Total Emp Wage for company: "+ company + totalEmpWage );
    	return totalEmpWage;
     }
  	public static void main(String[] args) {
         System.out.println("Welcome to emp wage computation ");
-        computeEmpWage();
+      
+        computeEmpWage("Dmart",20,2,10);
+        computeEmpWage("Reliance",10,4,20);
     }
 }
