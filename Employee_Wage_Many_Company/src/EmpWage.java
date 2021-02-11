@@ -53,15 +53,18 @@ public class EmpWage {
 
         // Welcome message
         System.out.println("Welcome to Employee Wedge Builder...");
-        System.out.println("************************************\n");
+      
 
         // Objects
+        
         EmpWage dMart = new EmpWage("Dmart", 20, 2, 10);
         EmpWage reliance = new EmpWage("Reliance", 10, 4, 20);
+        EmpWage amazon = new EmpWage("Amazon", 20, 2, 10);
 
         // Method calls
         dMart.computeEmpWage();
         reliance.computeEmpWage();
+        amazon.computeEmpWage();
 
     }// End main
 }// End class EmpWageBuilder
