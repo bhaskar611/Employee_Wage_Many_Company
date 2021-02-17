@@ -1,27 +1,27 @@
-public class EmpWage {
-    public static final int IS_PART_TIME = 1;
-    public static final int IS_FULL_TIME = 2;
+public class EmpWage implements ComputeEmployeeWage{
+	public static final int IS_PART_TIME = 1;
+	public static final int IS_FULL_TIME = 2;
 
-    private int numOfCompany = 0;
+	private int numOfCompany = 0;
 	private CompanyEmpWage[] companyEmpWageArray;
-	
+
 	public EmpWage() {
 		companyEmpWageArray = new CompanyEmpWage[5];
 	}
-	
-	private void addCompanyEmpWage(String company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth) {
+
+	public void addCompanyEmpWage(String company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth) {
 		companyEmpWageArray[numOfCompany] = new CompanyEmpWage(company, empRatePerHour, numOfWorkingDays, maxHoursPerMonth);
 		numOfCompany++;
 	}
-	
-	private void computeEmpWage() {
+
+	public void computeEmpWage() {
 		for(int i = 0;i < numOfCompany; i++) {
 			companyEmpWageArray[i].setTotalEmpWage(this.computeEmpWage(companyEmpWageArray[i]));
 			System.out.println(companyEmpWageArray[i]);
 			System.out.println();
 		}
 	}
-	
+
 	public int computeEmpWage(CompanyEmpWage companyEmpWage ) {
 		int empHrs = 0, totalEmpHrs = 0, totalWorkingDays = 0;
 		while(totalEmpHrs <= companyEmpWage.maxHoursPerMonth && totalWorkingDays < companyEmpWage.numOfWorkingDays) {
@@ -43,7 +43,8 @@ public class EmpWage {
 		}
 		return totalEmpHrs * companyEmpWage.empRatePerHour;
 	}
-	
+
+
 	public static void main(String[] args) {
 		System.out.println("Welcome to the Employee Wage Computation Problem");
 		EmpWage empWageBuilder = new EmpWage();
@@ -51,6 +52,7 @@ public class EmpWage {
 		empWageBuilder.addCompanyEmpWage("jioMart", 10, 4, 20);
 		empWageBuilder.computeEmpWage();
 	}
+
 }// End class EmpWageBuilder
  
   	
